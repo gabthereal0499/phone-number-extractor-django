@@ -13,7 +13,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # ================= SECURITY =================
 SECRET_KEY = 'django-insecure-9%#rp06&4fk0b*657s2oj56=sh7idnkmyo*#smyh@$y+68g%2)'
 DEBUG = True
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 # ================= APPLICATIONS =================
 INSTALLED_APPS = [
@@ -39,6 +39,9 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
+    'django.middleware.common.CommonMiddleware',
 ]
 
 # ================= URL CONFIG =================
@@ -118,3 +121,6 @@ CORS_ALLOW_ALL_ORIGINS = True
 # from django.views.generic import TemplateView
 # path('', TemplateView.as_view(template_name='index.html')),
 # This allows Django to serve the React frontend automatically.
+
+STATIC_URL = '/static/'
+STATIC_ROOT = BASE_DIR / 'staticfiles'

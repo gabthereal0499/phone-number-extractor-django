@@ -1,0 +1,6 @@
+services:
+  - type: web
+    name: phone-number-extractor
+    env: python
+    buildCommand: "./build.sh"
+    startCommand: "gunicorn config.wsgi:application"

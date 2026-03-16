@@ -27,10 +27,7 @@ function Upload({ setNumbers }) {
       setLoading(true);
 
       // Call Django API to extract numbers
-      const response = await axios.post(
-        "http://127.0.0.1:8000/api/upload/",
-        formData
-      );
+      const response = await axios.post("https://phone-number-extractor-django.onrender.com/api/upload/", formData);
 
       // ✅ Pass numbers to App.js and automatically go to Results page
       setNumbers(response.data.numbers);
